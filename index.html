@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impel Personalizados</title>
+
+  <style>
+    :root {
+      --lilas: #8b5cf6;
+      --lilas-claro: #f3e8ff;
+      --dourado: #d6a84f;
+      --texto: #2b2238;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      color: var(--texto);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.25), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(214, 168, 79, 0.22), transparent 35%),
+        linear-gradient(135deg, #fff7fb, #f6efff);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 380px;
+      padding: 34px 24px;
+      text-align: center;
+
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: 28px;
+
+      box-shadow:
+        0 20px 50px rgba(70, 35, 120, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    }
+
+    .logo {
+      width: 155px;
+      height: 155px;
+      margin: 0 auto 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: transparent;
+      /* 👈 sem fundo */
+      border-radius: 0;
+      /* opcional, deixa mais clean */
+      overflow: hidden;
+
+      box-shadow: none;
+      /* 👈 remove sombra */
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* BOTÕES COM UMA COR SÓ */
+    .btn {
+      width: 100%;
+      min-height: 56px;
+      margin-bottom: 14px;
+      padding: 0 18px;
+
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 18px;
+
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(139, 92, 246, 0.85);
+      /* 👈 lilás sólido elegante */
+
+      box-shadow: 0 10px 24px rgba(60, 35, 90, 0.14);
+
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(60, 35, 90, 0.22);
+      background: rgba(139, 92, 246, 1);
+      /* mais forte no hover */
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    /* remove cores diferentes */
+    .instagram,
+    .whatsapp,
+    .catalogo {
+      background: rgba(139, 92, 246, 0.85);
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      padding: 20px;
+
+      background: rgba(30, 20, 45, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .overlay-content {
+      width: 100%;
+      max-width: 330px;
+      padding: 28px 22px;
+      text-align: center;
+
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 26px;
+
+      box-shadow: 0 20px 45px rgba(40, 20, 70, 0.22);
+    }
+
+    .overlay-content h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: var(--texto);
+    }
+
+    .overlay-content p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #51465f;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+
+      border: none;
+      border-radius: 14px;
+
+      background: linear-gradient(135deg, #8b5cf6, #d6a84f);
+      color: #fff;
+
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+
+      box-shadow: 0 10px 22px rgba(90, 55, 130, 0.18);
+    }
+
+    .close-btn:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo Impel Personalizados">
+    </div>
+
+    <a class="btn instagram" href="https://www.instagram.com/impel_personalizados/" target="_blank">
+      Instagram
+    </a>
+
+    <a class="btn whatsapp" href="https://wa.me/5574999463482" target="_blank">
+      WhatsApp
+    </a>
+
+    <button class="btn catalogo" onclick="abrirOverlay()">
+      Catálogo
+    </button>
+
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+      <h2>Catálogo em manutenção</h2>
+      <p>Estamos ajustando tudo para te mostrar novidades lindas 💜</p>
+
+      <button class="close-btn" onclick="fecharOverlay()">
+        Fechar
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function abrirOverlay() {
+      document.getElementById("overlay").style.display = "flex";
+    }
+
+    function fecharOverlay() {
+      document.getElementById("overlay").style.display = "none";
+    }
+  </script>
+
+</body>
+
+</html>
